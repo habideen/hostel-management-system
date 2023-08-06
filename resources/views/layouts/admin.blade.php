@@ -5,6 +5,7 @@
   <title>@yield('title') - {{env('APP_NAME')}}</title>
   <!-- Required meta tags -->
   @include('components.style')
+  <link rel="stylesheet" href="/assets/css/custom.css">
   @yield('css')
   @yield('upScript')
 </head>

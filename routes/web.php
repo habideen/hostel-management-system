@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\WEB\Admin\DashboardController;
+use App\Http\Controllers\WEB\Admin\HallController;
 use App\Http\Controllers\WEB\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,4 +30,8 @@ Route::prefix('admin')
 ->middleware(['auth'])
 ->group(function() {
     Route::get('/', [DashboardController::class, 'index']);
+    Route::get('add_hall', [HallController::class, 'index']);
+    Route::get('update_hall', [HallController::class, 'index']);
+    Route::post('update_hall', [HallController::class, 'updateHall']);
+    Route::post('manage_hall', [HallController::class, 'index']);
 });
