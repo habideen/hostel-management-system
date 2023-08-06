@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\WEB\Admin\DashboardController;
 use App\Http\Controllers\WEB\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +22,11 @@ Route::get('/', function () {
 Route::get('/', [LoginController::class, 'index'])->name('login');
 Route::get('login', [LoginController::class, 'index']);
 Route::post('login', [LoginController::class, 'login']);
+
+
+
+Route::prefix('admin')
+->middleware(['auth'])
+->group(function() {
+    Route::get('/', [DashboardController::class, 'index']);
+});
