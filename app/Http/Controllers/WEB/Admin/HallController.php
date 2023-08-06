@@ -8,9 +8,16 @@ use Illuminate\Http\Request;
 
 class HallController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return view('admin.add_hall')->with([]);
+        if ($request->id) {
+            $hall = (new AdminHallController())->hallDetails($request->id);
+            $hall = json_decode($hall->getContent());
+        }
+
+        return view('admin.add_hall')->with([
+            'hall' => $hall->details ?? null
+        ]);
     } // index
 
 
@@ -33,4 +40,16 @@ class HallController extends Controller
             'success' => $response->message
         ]);
     } // updateHall
+
+
+
+    public function hallList()
+    {
+        $api = (new AdminHallController())->hallList();
+        $response = json_decode($api->getContent());
+
+        return view('admin.hall_list')->with([
+            'halls' => $response->halls
+        ]);
+    } // hallList
 }

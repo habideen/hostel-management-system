@@ -33,5 +33,5 @@ Route::prefix('admin')
     Route::get('add_hall', [HallController::class, 'index']);
     Route::get('update_hall', [HallController::class, 'index']);
     Route::post('update_hall', [HallController::class, 'updateHall']);
-    Route::post('manage_hall', [HallController::class, 'index']);
+    Route::get('manage_hall', [HallController::class, 'hallList']);
 });

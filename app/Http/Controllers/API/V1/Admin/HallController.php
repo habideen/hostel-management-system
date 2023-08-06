@@ -51,4 +51,26 @@ class HallController extends Controller
             'message' => $request->id ? ENTRY_UPDATED : ENTRY_CREATED,
         ], Response::HTTP_CREATED);
     } // updateHall
+
+
+
+    public function hallList()
+    {
+        return response([
+            'status' => 'successful',
+            'message' => 'Retrieved successfully',
+            'halls' => Hall::paginate(PAGINATION)
+        ]);
+    } // hallList
+
+
+
+    public function hallDetails($id)
+    {
+        return response([
+            'status' => 'successful',
+            'message' => 'Retrieved successfully',
+            'details' => Hall::select('id', 'name')->where('id', $id)->first()
+        ]);
+    } // hallList
 }
