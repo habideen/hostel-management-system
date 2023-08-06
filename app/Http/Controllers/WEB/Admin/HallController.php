@@ -45,7 +45,7 @@ class HallController extends Controller
 
     public function hallList()
     {
-        $api = (new AdminHallController())->hallList();
+        $api = (new AdminHallController())->hallList(true);
         $response = json_decode($api->getContent());
 
         return view('admin.hall_list')->with([

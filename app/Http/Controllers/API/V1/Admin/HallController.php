@@ -54,12 +54,12 @@ class HallController extends Controller
 
 
 
-    public function hallList()
+    public function hallList($isPaginate = false)
     {
         return response([
             'status' => 'successful',
             'message' => 'Retrieved successfully',
-            'halls' => Hall::paginate(PAGINATION)
+            'halls' => $isPaginate ? Hall::paginate(PAGINATION) : Hall::select('id', 'name')->get()
         ]);
     } // hallList
 

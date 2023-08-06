@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\WEB\Admin\BlockController;
 use App\Http\Controllers\WEB\Admin\DashboardController;
 use App\Http\Controllers\WEB\Admin\HallController;
 use App\Http\Controllers\WEB\Auth\LoginController;
@@ -34,4 +35,9 @@ Route::prefix('admin')
     Route::get('update_hall', [HallController::class, 'index']);
     Route::post('update_hall', [HallController::class, 'updateHall']);
     Route::get('manage_hall', [HallController::class, 'hallList']);
+
+    Route::get('add_block', [BlockController::class, 'index']);
+    Route::get('update_block', [BlockController::class, 'index']);
+    Route::post('update_block', [BlockController::class, 'updateBlock']);
+    Route::get('manage_block', [BlockController::class, 'blockList']);
 });
