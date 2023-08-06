@@ -36,7 +36,7 @@
         
         <form class="forms-sample" action="/admin/update_block" method="POST">
           @csrf
-          <input type="text" name="id" id="id" value="{{old('id') ?? $block->id ?? ''}}">
+          <input type="hidden" name="id" id="id" value="{{old('id') ?? $block->id ?? ''}}">
           <div class="form-group row">
             <label for="hall_id" class="col-sm-3 col-form-label">Hall</label>
             <div class="col-sm-9">

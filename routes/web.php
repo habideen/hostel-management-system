@@ -3,6 +3,7 @@
 use App\Http\Controllers\WEB\Admin\BlockController;
 use App\Http\Controllers\WEB\Admin\DashboardController;
 use App\Http\Controllers\WEB\Admin\HallController;
+use App\Http\Controllers\WEB\Admin\SessionController;
 use App\Http\Controllers\WEB\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -40,4 +41,7 @@ Route::prefix('admin')
     Route::get('update_block', [BlockController::class, 'index']);
     Route::post('update_block', [BlockController::class, 'updateBlock']);
     Route::get('manage_block', [BlockController::class, 'blockList']);
+
+    Route::get('update_session', [SessionController::class, 'index']);
+    Route::post('update_session', [SessionController::class, 'updateSession']);
 });

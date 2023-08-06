@@ -24,6 +24,12 @@
       </div>
     </li>
     <li class="nav-item">
+      <a class="nav-link" href="/admin/update_session">
+        <i class="mdi mdi-calendar menu-icon"></i>
+        <span class="menu-title">Update Session</span>
+      </a>
+    </li>
+    <li class="nav-item">
       <a class="nav-link" href="student_registration.php">
         <i class="mdi mdi-account-plus menu-icon"></i>
         <span class="menu-title">Student Registration</span>

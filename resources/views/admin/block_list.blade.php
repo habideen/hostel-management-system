@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title') Hall List @endsection
+@section('title') Block List @endsection
 
 
 @section('content')
@@ -10,13 +10,13 @@
     <div class="d-flex justify-content-between flex-wrap">
       <div class="d-flex align-items-end flex-wrap">
         <div class="me-md-3 me-xl-5">
-          <h3 class="mb-0">Hall List</h3>
+          <h3 class="mb-0">Block List</h3>
         </div>
       </div>
       <div class="d-flex justify-content-between align-items-end flex-wrap">
           <i class="mdi mdi-home text-muted hover-cursor"></i>
           <p class="text-muted mb-0 hover-cursor mute-crumb"><a href="/admin">&nbsp;/&nbsp;Dashboard&nbsp;/&nbsp;</a></p>
-          <p class="text-primary mb-0 hover-cursor">Hall List</p>
+          <p class="text-primary mb-0 hover-cursor">Block List</p>
       </div>
     </div>
   </div>

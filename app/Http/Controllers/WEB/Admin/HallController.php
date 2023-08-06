@@ -29,7 +29,7 @@ class HallController extends Controller
 
         if ($response->status == 'failed') {
             return redirect()->back()->withInput($request->all())
-                ->withErrors($response->errors)
+                ->withErrors($response->errors ?? null)
                 ->with([
                     'fail' => $response->message
                 ]);
