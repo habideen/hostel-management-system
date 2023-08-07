@@ -8,6 +8,7 @@ use App\Http\Controllers\WEB\Admin\StudentController;
 use App\Http\Controllers\WEB\Admin\UserController;
 use App\Http\Controllers\WEB\Auth\LoginController;
 use App\Http\Controllers\WEB\Auth\LogoutController;
+use App\Http\Controllers\WEB\Student\DashboardController as StudentDashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -59,4 +60,13 @@ Route::prefix('admin')
     Route::get('upload_student', [StudentController::class, 'index']);
     Route::post('upload_student', [StudentController::class, 'uploadStudent']);
     Route::get('manage_student', [StudentController::class, 'wardenList']);
+});
+
+
+
+Route::prefix('student')
+->middleware(['auth'])
+->group(function() {
+    Route::get('/dashboard', [StudentDashboardController::class, 'index']);
+
 });

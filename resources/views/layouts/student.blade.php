@@ -15,7 +15,7 @@
     @include('components.panel_topnav')
   
     <div class="container-fluid page-body-wrapper">
-      @include('components.admin_sidebar')
+      @include('components.student________sidebar')
 
       <div class="main-panel">
         <div class="content-wrapper">

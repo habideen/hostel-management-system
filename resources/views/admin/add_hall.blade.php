@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.panel')
 
 @php $title = $hall ? 'Update Hall' : 'Add New Hall'; @endphp
 @section('title') {{ $title }} @endsection

@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.panel')
 
 @php $title = $block ? 'Update Block' : 'Add New Block'; @endphp
 @section('title') {{ $title }} @endsection
