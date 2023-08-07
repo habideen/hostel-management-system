@@ -1,7 +1,7 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
   <ul class="nav">
     <li class="nav-item">
-      <a class="nav-link" href="/admin">
+      <a class="nav-link" href="/admin/dashboard">
         <i class="mdi mdi-home menu-icon"></i>
         <span class="menu-title">Dashboard</span>
       </a>
@@ -30,15 +30,21 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="student_registration.php">
-        <i class="mdi mdi-account-plus menu-icon"></i>
-        <span class="menu-title">Student Registration</span>
+      <a class="nav-link" data-bs-toggle="collapse" href="#ui-student" aria-expanded="false" aria-controls="ui-student">
+        <i class="mdi mdi-account-search menu-icon"></i>
+        <span class="menu-title">Student</span>
+        <i class="menu-arrow"></i>
       </a>
+      <div class="collapse" id="ui-student">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="/admin/upload_student">Upload Student</a></li>
+          <li class="nav-item"> <a class="nav-link" href="/admin/manage_student">Manage Student</a></li>
+        </ul>
+      </div>
     </li>
-
     <li class="nav-item">
       <a class="nav-link" data-bs-toggle="collapse" href="#ui-warden" aria-expanded="false" aria-controls="ui-warden">
-        <i class="mdi mdi-pencil-box-outline menu-icon"></i>
+        <i class="mdi mdi-account-settings menu-icon"></i>
         <span class="menu-title">Warden</span>
         <i class="menu-arrow"></i>
       </a>
@@ -50,27 +56,9 @@
       </div>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="manage_warden.php">
-        <i class="mdi mdi-account-search menu-icon"></i>
-        <span class="menu-title">Manage Warden</span>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="manage_student.php">
-        <i class="mdi mdi-account-search menu-icon"></i>
-        <span class="menu-title">Manage Student</span>
-      </a>
-    </li>
-    <li class="nav-item d-none">
-      <a class="nav-link" href="#">
-        <i class="mdi mdi-emoticon menu-icon"></i>
-        <span class="menu-title">Icons</span>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">
-        <i class="mdi mdi-file-document-box-outline menu-icon"></i>
-        <span class="menu-title">User Access Logs</span>
+      <a class="nav-link" href="/logout">
+        <i class="mdi mdi-logout menu-icon"></i>
+        <span class="menu-title">Logout</span>
       </a>
     </li>
   </ul>

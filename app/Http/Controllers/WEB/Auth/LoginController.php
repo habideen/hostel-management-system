@@ -68,6 +68,6 @@ class LoginController extends Controller
         RateLimiter::clear('web_auth:' . $request->ip());
 
 
-        return redirect()->intended(strtolower(Auth::user()->account_type));
+        return redirect()->intended(strtolower(Auth::user()->account_type) . '/dashboard');
     }
 }

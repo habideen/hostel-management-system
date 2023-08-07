@@ -4,8 +4,10 @@ use App\Http\Controllers\WEB\Admin\BlockController;
 use App\Http\Controllers\WEB\Admin\DashboardController;
 use App\Http\Controllers\WEB\Admin\HallController;
 use App\Http\Controllers\WEB\Admin\SessionController;
+use App\Http\Controllers\WEB\Admin\StudentController;
 use App\Http\Controllers\WEB\Admin\UserController;
 use App\Http\Controllers\WEB\Auth\LoginController;
+use App\Http\Controllers\WEB\Auth\LogoutController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,13 +28,14 @@ Route::get('/', function () {
 Route::get('/', [LoginController::class, 'index'])->name('login');
 Route::get('login', [LoginController::class, 'index']);
 Route::post('login', [LoginController::class, 'login']);
+Route::get('/logout', [LogoutController::class, 'logout'])->middleware('auth')->name('logout');
 
 
 
 Route::prefix('admin')
 ->middleware(['auth'])
 ->group(function() {
-    Route::get('/', [DashboardController::class, 'index']);
+    Route::get('/dashboard', [DashboardController::class, 'index']);
     Route::get('add_hall', [HallController::class, 'index']);
     Route::get('update_hall', [HallController::class, 'index']);
     Route::post('update_hall', [HallController::class, 'updateHall']);
@@ -52,4 +55,8 @@ Route::prefix('admin')
     // Route::post('warden_registration', [UserController::class, 'updateWarden']);
     Route::get('manage_warden/{account_type}', [UserController::class, 'userList']);
     Route::get('manage_warden', [UserController::class, 'wardenList']);
+
+    Route::get('upload_student', [StudentController::class, 'index']);
+    Route::post('upload_student', [StudentController::class, 'uploadStudent']);
+    Route::get('manage_student', [StudentController::class, 'wardenList']);
 });
