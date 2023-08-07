@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->uuid('id')->primary();
+            $table->string('matric_no', 12)->nullable();
             $table->string('last_name', 30);
             $table->string('first_name', 30);
             $table->string('middle_name', 30)->nullable();
+            $table->string('gender', 6);
             $table->string('phone_1')->unique()->nullable();
             $table->string('phone_2')->unique()->nullable();
             $table->string('email')->unique();
@@ -25,6 +27,7 @@ return new class extends Migration
             $table->unsignedBigInteger('hall_id')->nullable();
             $table->string('disabled', 1)->nullable();
             $table->rememberToken();
+            $table->uuid('created_by')->nullable();
             $table->timestamps();
         });
     }

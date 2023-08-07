@@ -23,9 +23,11 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'id',
+        'matric_no',
         'last_name',
         'first_name',
         'middle_name',
+        'gender',
         'phone_1',
         'phone_2',
         'email',
@@ -34,6 +36,7 @@ class User extends Authenticatable
         'account_type',
         'hall_id',
         'disabled',
+        'created_by'
     ];
 
     /**

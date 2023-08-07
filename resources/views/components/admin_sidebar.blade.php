@@ -35,11 +35,19 @@
         <span class="menu-title">Student Registration</span>
       </a>
     </li>
+
     <li class="nav-item">
-      <a class="nav-link" href="warden_registration.php">
-        <i class="mdi mdi-account-plus menu-icon"></i>
-        <span class="menu-title">Warden Registration</span>
+      <a class="nav-link" data-bs-toggle="collapse" href="#ui-warden" aria-expanded="false" aria-controls="ui-warden">
+        <i class="mdi mdi-pencil-box-outline menu-icon"></i>
+        <span class="menu-title">Warden</span>
+        <i class="menu-arrow"></i>
       </a>
+      <div class="collapse" id="ui-warden">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="/admin/warden_registration">Add Warden</a></li>
+          <li class="nav-item"> <a class="nav-link" href="/admin/manage_warden/warden">Manage Warden</a></li>
+        </ul>
+      </div>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="manage_warden.php">
