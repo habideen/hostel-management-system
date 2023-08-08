@@ -75,6 +75,7 @@ Route::prefix('student')
     ->group(function () {
         Route::get('dashboard', [StudentDashboardController::class, 'index']);
         Route::get('book_for_hostel', [BookingController::class, 'index']);
+        Route::get('book', [BookingController::class, 'bookNow']);
         Route::get('update_profile', [ProfileController::class, 'index']);
     });
 

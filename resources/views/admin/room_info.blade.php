@@ -33,6 +33,7 @@
                     <h5 class="mb-3"><b>Room ID: </b>{{$room->id}}</h5>
                     <h5 class="mb-3"><b>Name: </b>{{strtoupper($room->last_name)}} {{$room->first_name}} {{$room->middle_name}}</h5>
                     <h5 class="mb-3"><b>Matric Number: </b>{{$room->matric_no}}</h5>
+                    <h5 class="mb-3"><b>Gender: </b>{{$room->gender}}</h5>
                     <h5 class="mb-3"><b>Hall: </b>{{$room->hall}}</h5>
                     <h5 class="mb-3"><b>Block: </b>{{$room->block}}</h5>
                     <h5 class="mb-3"><b>Room Number: </b>{{$room->room_no}}</h5>

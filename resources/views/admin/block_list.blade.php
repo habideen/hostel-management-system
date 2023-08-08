@@ -39,8 +39,8 @@
                   <th>Room Starts At</th>
                   <th>No. of Rooms</th>
                   <th>Room Capacity</th>
+                  <th>Gender</th>
                   <th>Created At</th>
-                  <th>Updated At</th>
                   <th></th>
                 </tr>
               </thead>
@@ -53,8 +53,8 @@
                     <td>{{$block->first_room_number}}</td>
                     <td>{{$block->no_of_rooms}}</td>
                     <td>{{$block->room_capacity}}</td>
+                    <td>{{$block->gender}}</td>
                     <td>{{date('d M, Y h:i a', strtotime($block->created_at))}}</td>
-                    <td>{{date('d M, Y h:i a', strtotime($block->updated_at))}}</td>
                     <td><a href="/admin/update_block?id={{$block->id}}&name={{$block->name}}" 
                       class="btn btn-primary">Update</a></td>
                   </tr>

@@ -27,31 +27,15 @@
         <div class="d-flex mb-4">
           <h4 class="card-title" id="card_title">Book Now</h4>
           <div class="ms-auto">
-            <a href="/admin/manage_warden/warden" class="btn btn-dark btn-sm">Warden List</a>
+            <a href="/student/my_hostels" class="btn btn-dark btn-sm">View My Hostels</a>
           </div>
         </div>
         
         @include('components.alert')
         
-        <form class="forms-sample" action="/admin/update_warden" method="POST">
-          @csrf
-          <div class="form-group row">
-            <label for="matric_no" class="col-sm-3 col-form-label">Matric Number *</label>
-            <div class="col-sm-9">
-                <input type="text" class="form-control" name="matric_no" id="matric_no" 
-                  placeholder="e.g. Folarin" value="{{old('matric_no')}}" 
-                  pattern="^[a-zA-Z\-]{2,30}$" required>
-                @error('matric_no')
-                <span class="text-danger" role="alert">
-                    <span>{{ $message }}</span>
-                </span>
-                @enderror
-            </div>
-          </div>
-          <button type="submit" class="btn btn-primary me-2">{{$user ? 'Save Changes' : 'Submit'}}</button>
-
-          <button type="reset" class="btn btn-light {{$user ? 'd-none' : ''}}">Cancel</button>
-        </form>
+        <h4 class="mb-4"><b>Current Session: </b>{{currentSession()}}</h4>
+        
+        <a href="/student/book" class="btn btn-primary me-2">Book for bedspace</a>
       </div>
     </div>
   </div>

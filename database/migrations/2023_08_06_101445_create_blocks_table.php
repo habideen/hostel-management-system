@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedSmallInteger('first_room_number');
             $table->unsignedSmallInteger('no_of_rooms');
             $table->unsignedSmallInteger('room_capacity');
+            $table->uuid('gender');
             $table->uuid('created_by');
             $table->timestamps();
         });

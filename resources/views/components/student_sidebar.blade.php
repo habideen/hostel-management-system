@@ -13,10 +13,17 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/student/book_for_hostel">
-        <i class="mdi mdi-home-plus menu-icon"></i>
-        <span class="menu-title">Book for Hostel</span>
+      <a class="nav-link" data-bs-toggle="collapse" href="#ui-hostel" aria-expanded="false" aria-controls="ui-hostel">
+        <i class="mdi mdi-account-search menu-icon"></i>
+        <span class="menu-title">Student</span>
+        <i class="menu-arrow"></i>
       </a>
+      <div class="collapse" id="ui-hostel">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="/student/book_for_hostel">Book for Hostel</a></li>
+          <li class="nav-item"> <a class="nav-link" href="/student/my_hostels">My Hostels</a></li>
+        </ul>
+      </div>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="/logout">

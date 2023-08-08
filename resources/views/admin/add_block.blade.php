@@ -101,6 +101,21 @@
                 @enderror
             </div>
           </div>
+          <div class="form-group row">
+            <label for="gender" class="col-sm-3 col-form-label">Gender</label>
+            <div class="col-sm-9">
+                <select name="gender" id="gender" class="form-select" required>
+                  <option value=""></option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+                @error('gender')
+                <span class="text-danger" role="alert">
+                    <span>{{ $message }}</span>
+                </span>
+                @enderror
+            </div>
+          </div>
           <button type="submit" class="btn btn-primary me-2">{{$block ? 'Save Changes' : 'Submit'}}</button>
 
           <button type="reset" class="btn btn-light {{$block ? 'd-none' : ''}}">Cancel</button>
@@ -117,5 +132,6 @@
 @section('script')
 <script>
   $('#hall_id').val('{{old('hall_id') ?? $block->hall_id ?? ''}}')
+  $('#gender').val('{{old('gender') ?? $block->gender ?? ''}}')
 </script>
 @endsection

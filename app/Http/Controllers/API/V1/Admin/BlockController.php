@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class BlockController extends Controller
 {
@@ -19,7 +20,8 @@ class BlockController extends Controller
             'hall_id' => ['required', 'integer', 'exists:halls,id'],
             'first_room_number' => ['required', 'integer', 'min:1'],
             'no_of_rooms' => ['required', 'integer', 'min:1'],
-            'room_capacity' => ['required', 'integer', 'min:1']
+            'room_capacity' => ['required', 'integer', 'min:1'],
+            'gender' => ['required', 'string', Rule::in(['Male', 'Female'])]
         ]);
 
 
@@ -69,6 +71,7 @@ class BlockController extends Controller
             'blocks.first_room_number',
             'blocks.no_of_rooms',
             'blocks.room_capacity',
+            'blocks.gender',
             'blocks.created_at',
             'blocks.updated_at'
         )
@@ -94,7 +97,8 @@ class BlockController extends Controller
                 'name',
                 'first_room_number',
                 'no_of_rooms',
-                'room_capacity'
+                'room_capacity',
+                'gender'
             )->where('id', $id)->first()
         ]);
     } // blockDetails

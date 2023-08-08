@@ -123,6 +123,7 @@ class BookingController extends Controller
                 'users.last_name',
                 'users.first_name',
                 'users.middle_name',
+                'users.gender',
                 'halls.name AS hall',
                 'blocks.name AS block',
                 'student_rooms.room_no',
