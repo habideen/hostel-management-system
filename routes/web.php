@@ -82,6 +82,21 @@ Route::prefix('student')
     });
 
 
+
+Route::prefix('warden')
+    ->middleware(['auth'])
+    ->group(function () {
+        Route::get('dashboard', [StudentDashboardController::class, 'index']);
+
+        
+        Route::get('book_for_hostel', [BookingController::class, 'index']);
+        Route::get('book', [BookingController::class, 'bookNow']);
+        Route::get('my_hostels', [BookingController::class, 'myHostels']);
+        Route::get('bed_space_info', [BookingController::class, 'roomInfo']);
+        Route::get('update_profile', [ProfileController::class, 'index']);
+    });
+
+
 Route::middleware(['auth'])
     ->group(function () {
         Route::post('profile', [ProfileController::class, 'updateProfile']);

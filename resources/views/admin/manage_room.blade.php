@@ -74,34 +74,38 @@
                     <p class="mb-2"><b>Session: </b>{{ $session ?? (currentSession() ?? 'No session set yet') }}</p>
                     <p class="mb-2"><b>Number occupied: </b>{{ $occupied }}</p>
                     <p class="mb-4"><b>Number Vacant: </b>{{ $vacant }}</p>
-                    <div class="table-responsiveeee">
-                        <table class="table" id="dataTable">
-                            <thead>
+                    <table class="table" id="dataTable">
+                        <thead>
+                            <tr>
+                                <th>Hall</th>
+                                <th>Block</th>
+                                <th>Room</th>
+                                <th>Bed</th>
+                                <th>Occupied</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($rooms as $room)
                                 <tr>
-                                    <th>Hall</th>
-                                    <th>Block</th>
-                                    <th>Room</th>
-                                    <th>Bed</th>
-                                    <th>Occupied</th>
+                                    <th>{{ $room->hall }}</th>
+                                    <th>{{ $room->block }}</th>
+                                    <th>{{ $room->room_no }}</th>
+                                    <th>{{ $room->bed_space }}</th>
+                                    <th>{!! $room->user_id
+                                        ? '<a href="/admin/bed_space_info?roomID=' .
+                                            $room->id .
+                                            '&ref=' .
+                                            urlencode(url()->full()) .
+                                            '">' .
+                                            ($room->matric_no ? $room->matric_no : 'View') .
+                                            '</a>'
+                                        : '' !!}</th>
                                     <th></th>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($rooms as $room)
-                                    <tr>
-                                        <th>{{ $room->hall }}</th>
-                                        <th>{{ $room->block }}</th>
-                                        <th>{{ $room->room_no }}</th>
-                                        <th>{{ $room->bed_space }}</th>
-                                        <th>{!! $room->user_id
-                                            ? '<a href="/admin/bed_space_info?roomID='.$room->id.'&ref='.urlencode(url()->full()).'">' . ($room->matric_no ? $room->matric_no : 'View') . '</a>'
-                                            : '' !!}</th>
-                                        <th></th>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
