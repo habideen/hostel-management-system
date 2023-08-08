@@ -31,4 +31,48 @@ class BookingController extends Controller
             'success' => $response->message
         ]);
     } // bookNow
+
+
+
+    public function myHostels()
+    {
+        $api = (new StudentBookingController())->myHostels();
+        $response = json_decode($api->getContent());
+
+        return view('student.manage_room')->with([
+            'rooms' => $response->rooms
+        ]);
+    } // myHostels
+
+
+
+
+    public function roomInfo(Request $request)
+    {
+        $roomInfo = (new StudentBookingController())->roomInfo($request->roomID);
+        $roomInfo = json_decode($roomInfo->getContent());
+
+        if ($roomInfo->status == 'failed') {
+            return redirect()->back()->with([
+                'fail' => $roomInfo->message
+            ]);
+        }
+
+        if (!$roomInfo->room) {
+            return redirect()->back()->with([
+                'fail' => 'Room does not exist.'
+            ]);
+        }
+
+        if (!$roomInfo->room->user_id) {
+            return redirect()->back()->with([
+                'fail' => 'Room is not occupied.'
+            ]);
+        }
+
+
+        return view('shared.room_info')->with([
+            'room' => $roomInfo->room
+        ]);
+    } // roomInfo
 }

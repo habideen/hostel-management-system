@@ -66,7 +66,7 @@ class BookingController extends Controller
         }
 
 
-        return view('admin.room_info')->with([
+        return view('shared.room_info')->with([
             'room' => $roomInfo->room
         ]);
     } // roomInfo

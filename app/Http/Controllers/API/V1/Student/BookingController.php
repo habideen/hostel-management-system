@@ -67,4 +67,56 @@ class BookingController extends Controller
             'message' => 'Room selected successfully'
         ], Response::HTTP_CREATED);
     } // bookNow
+
+
+
+    public function roomInfo($roomID)
+    {
+        return response([
+            'status' => 'successful',
+            'message' => 'Retrieved successfully',
+            'room' => StudentRoom::select(
+                'student_rooms.id',
+                'student_rooms.user_id',
+                'users.matric_no',
+                'users.last_name',
+                'users.first_name',
+                'users.middle_name',
+                'users.gender',
+                'halls.name AS hall',
+                'blocks.name AS block',
+                'student_rooms.room_no',
+                'student_rooms.bed_space',
+                'sessions.session'
+            )
+                ->join('blocks', 'blocks.id', '=', 'student_rooms.block_id')
+                ->join('halls', 'halls.id', '=', 'blocks.hall_id')
+                ->join('sessions', 'sessions.id', '=', 'student_rooms.session_id')
+                ->leftJoin('users', 'users.id', '=', 'student_rooms.user_id')
+                ->where('student_rooms.id', $roomID)
+                ->where('student_rooms.user_id', Auth::user()->id)->first(),
+        ]);
+    } // roomInfo
+
+
+
+    public function myHostels()
+    {
+        return response([
+            'status' => 'successful',
+            'message' => 'Retrieved successfully',
+            'rooms' => StudentRoom::select(
+                'student_rooms.id',
+                'halls.name AS hall',
+                'blocks.name AS block',
+                'student_rooms.room_no',
+                'student_rooms.bed_space',
+                'sessions.session'
+            )
+                ->join('blocks', 'blocks.id', '=', 'student_rooms.block_id')
+                ->join('halls', 'halls.id', '=', 'blocks.hall_id')
+                ->join('sessions', 'sessions.id', '=', 'student_rooms.session_id')
+                ->where('student_rooms.user_id', Auth::user()->id)->get(),
+        ]);
+    } // myHostels
 }
