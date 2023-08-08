@@ -82,7 +82,7 @@ class BlockController extends Controller
             'message' => 'Retrieved successfully',
             'blocks' => $isPaginate ? $blocks->paginate(PAGINATION) : $blocks->get()
         ]);
-    } // hallList
+    } // blockList
 
 
 

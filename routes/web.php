@@ -12,6 +12,8 @@ use App\Http\Controllers\WEB\Auth\LogoutController;
 use App\Http\Controllers\WEB\ProfileController;
 use App\Http\Controllers\WEB\Student\BookingController;
 use App\Http\Controllers\WEB\Student\DashboardController as StudentDashboardController;
+use App\Http\Controllers\WEB\Warden\BookingController as WardenBookingController;
+use App\Http\Controllers\WEB\Warden\DashboardController as WardenDashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -86,14 +88,15 @@ Route::prefix('student')
 Route::prefix('warden')
     ->middleware(['auth'])
     ->group(function () {
-        Route::get('dashboard', [StudentDashboardController::class, 'index']);
+        Route::get('dashboard', [WardenDashboardController::class, 'index']);
+        Route::get('rooms', [WardenBookingController::class, 'index']);
+        Route::get('bed_space_info', [AdminBookingController::class, 'roomInfo']);
 
-        
-        Route::get('book_for_hostel', [BookingController::class, 'index']);
-        Route::get('book', [BookingController::class, 'bookNow']);
-        Route::get('my_hostels', [BookingController::class, 'myHostels']);
-        Route::get('bed_space_info', [BookingController::class, 'roomInfo']);
-        Route::get('update_profile', [ProfileController::class, 'index']);
+        // Route::get('book_for_hostel', [BookingController::class, 'index']);
+        // Route::get('book', [BookingController::class, 'bookNow']);
+        // Route::get('my_hostels', [BookingController::class, 'myHostels']);
+        // Route::get('bed_space_info', [BookingController::class, 'roomInfo']);
+        // Route::get('update_profile', [ProfileController::class, 'index']);
     });
 
 

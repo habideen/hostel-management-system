@@ -14,8 +14,8 @@
     </li>
     <li class="nav-item">
       <a class="nav-link" data-bs-toggle="collapse" href="#ui-hostel" aria-expanded="false" aria-controls="ui-hostel">
-        <i class="mdi mdi-account-search menu-icon"></i>
-        <span class="menu-title">Student</span>
+        <i class="mdi mdi-home-outline menu-icon"></i>
+        <span class="menu-title">Hostel</span>
         <i class="menu-arrow"></i>
       </a>
       <div class="collapse" id="ui-hostel">
