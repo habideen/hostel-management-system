@@ -40,14 +40,14 @@
             <div class="card">
                 <div class="card-body pt-5">
                     <form class="forms-sample" action="/admin/rooms" method="GET">
-                        @csrf
+                        {{-- @csrf --}}
                         <div class="form-group row">
                             <label for="session" class="col-sm-3 col-form-label">Session</label>
                             <div class="col-sm-9">
                                 <select name="session" id="session" class="form-select" required>
                                     <option value=""></option>
                                     @foreach (allSessions() as $x)
-                                      <option value="{{$x->id}}">{{$x->session}}</option>
+                                        <option value="{{ $x->id }}">{{ $x->session }}</option>
                                     @endforeach
                                 </select>
                                 @error('session')
@@ -71,7 +71,7 @@
                     <div class="d-flex">
                         <h4 class="card-title mb-4">Rooms</h4>
                     </div>
-                    <p class="mb-2"><b>Session: </b>{{ $session ?? currentSession() ?? 'No session set yet' }}</p>
+                    <p class="mb-2"><b>Session: </b>{{ $session ?? (currentSession() ?? 'No session set yet') }}</p>
                     <p class="mb-2"><b>Number occupied: </b>{{ $occupied }}</p>
                     <p class="mb-4"><b>Number Vacant: </b>{{ $vacant }}</p>
                     <div class="table-responsiveeee">
@@ -93,7 +93,9 @@
                                         <th>{{ $room->block }}</th>
                                         <th>{{ $room->room_no }}</th>
                                         <th>{{ $room->bed_space }}</th>
-                                        <th>{!! $room->user_id ? "<a href='/admin/bed_space_info'>View</a>" : '' !!}</th>
+                                        <th>{!! $room->user_id
+                                            ? '<a href="/admin/bed_space_info?roomID='.$room->id.'&ref='.urlencode(url()->full()).'">' . ($room->matric_no ? $room->matric_no : 'View') . '</a>'
+                                            : '' !!}</th>
                                         <th></th>
                                     </tr>
                                 @endforeach

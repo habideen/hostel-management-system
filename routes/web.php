@@ -64,6 +64,7 @@ Route::prefix('admin')
 
     Route::get('rooms', [AdminBookingController::class, 'index']);
     Route::get('generate_rooms', [AdminBookingController::class, 'generateRooms']);
+    Route::get('bed_space_info', [AdminBookingController::class, 'roomInfo']);
 });
 
 
