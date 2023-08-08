@@ -13,15 +13,14 @@ return new class extends Migration
     {
         Schema::create('student_rooms', function (Blueprint $table) {
             $table->id();
-            $table->uuid('user_id');
-            $table->unsignedInteger('department_id'); //some students change departments
+            $table->uuid('user_id')->nullable();
+            $table->unsignedInteger('department_id')->nullable(); //some students change departments
             $table->unsignedBigInteger('block_id');
             $table->unsignedSmallInteger('room_no');
             $table->unsignedSmallInteger('bed_space');
-            $table->unsignedBigInteger('session_id');
-            $table->string('hostel_card', 20);
-            $table->string('expelled', 1);
-            $table->string('expelled_reason', 1);
+            $table->unsignedBigInteger('session_id')->nullable();
+            $table->string('expelled', 1)->nullable();
+            $table->string('expelled_reason', 100)->nullable();
             $table->timestamps();
         });
     }

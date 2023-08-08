@@ -17,3 +17,31 @@ if (!function_exists('currentSession')) {
     return $session->session ?? null;
   }
 }
+
+
+if (!function_exists('currentSessionID')) {
+  function currentSessionID()
+  {
+    $session = Session::select('id')->latest()->first();
+
+    return $session->id ?? null;
+  }
+}
+
+
+if (!function_exists('allSessions')) {
+  function allSessions()
+  {
+    return Session::select('id', 'session')->distinct('session')->get();
+  }
+}
+
+
+if (!function_exists('sessionFromId')) {
+  function sessionFromId($sessionID)
+  {
+    $session = Session::select('session')->where('id', $sessionID)->first();
+    
+    return $session->session ?? null;
+  }
+}

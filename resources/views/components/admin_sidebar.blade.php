@@ -18,8 +18,8 @@
           <li class="nav-item"> <a class="nav-link" href="/admin/manage_hall">Manage Hall</a></li>
           <li class="nav-item"> <a class="nav-link" href="/admin/add_block">Add Block</a></li>
           <li class="nav-item"> <a class="nav-link" href="/admin/manage_block">Manage Block</a></li>
-          <li class="nav-item"> <a class="nav-link" href="#">Add Rooms</a></li>
-          <li class="nav-item"> <a class="nav-link" href="#">Manage Rooms</a></li>
+          <li class="nav-item"> <a class="nav-link" href="/admin/rooms">Generate Rooms</a></li>
+          {{-- <li class="nav-item"> <a class="nav-link" href="#">Manage Rooms</a></li> --}}
         </ul>
       </div>
     </li>
